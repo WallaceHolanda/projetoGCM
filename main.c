@@ -1,8 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
 
-int main()
-{
-    printf("Hello world!\n");
-    return 0;
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<ctype.h>
+#include<locale.h>
+#include "restaurante.h"
+
+int main(){
+    setlocale(LC_ALL,"Portuguese");
+	menuCrud();
 }
