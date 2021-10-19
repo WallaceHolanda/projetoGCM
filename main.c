@@ -8,5 +8,6 @@
 
 int main(){
     setlocale(LC_ALL,"Portuguese");
+    printf("Teste de commit");
 	menuCrud();
 }
