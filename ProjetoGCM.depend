@@ -1,7 +1,12 @@
 # depslib dependency file v1.0
-1514140574 source:c:\users\walla\desktop\projetogcm\main.c
+1635556351 source:c:\users\walla\desktop\projetogcm\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<locale.h>
+	"restaurante.h"
+	"cardapio.h"
 
 1634383385 source:c:\users\pedro aires\desktop\trabalho de gcm\projetogcm\main.c
 	<stdio.h>
@@ -18,4 +23,27 @@
 1633199190 source:c:\users\pedro aires\desktop\trabalho de gcm\projetogcm\usuario.c
 
 1634383033 c:\users\pedro aires\desktop\trabalho de gcm\projetogcm\restaurante.h
+
+1634601592 source:c:\users\walla\desktop\projetogcm\restaurante.c
+	"restaurante.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<locale.h>
+
+1634601592 c:\users\walla\desktop\projetogcm\restaurante.h
+
+1633198746 source:c:\users\walla\desktop\projetogcm\usuario.c
+
+1635553186 c:\users\walla\desktop\projetogcm\cardapio.h
+
+1635556426 source:c:\users\walla\desktop\projetogcm\cardapio.c
+	"cardapio.h"
+	"restaurante.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<locale.h>
 
