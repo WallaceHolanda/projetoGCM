@@ -1,10 +1,17 @@
 #ifndef CARDAPIO_H_INCLUDED
 #define CARDAPIO_H_INCLUDED
 
-void cadastrarItemdoCardapio();
-void listarCardapio();
-//void alterarItemDoCardapio();
-//void excluirItemDoCardapio();
+typedef struct lista Lista;
+typedef struct listano ListaNo;
+
+Lista* criaLista();
+Lista* carregaItensDoCardapio();
+
+Lista* cadastrarItemdoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante);
+void listarCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante);
+Lista* excluirItemDoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante);
+Lista* editarItemDoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante);
+
 //void menuCardapio();
 
 #endif // CARDAPIO_H_INCLUDED
