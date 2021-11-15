@@ -34,21 +34,29 @@ void cadastrar(){
 		strcpy(func.nome,strupr(nome));
 		printf("Insira o Endereço\n\n");
 		printf("Rua: ");
-		scanf("%s", &func.rua);
+		scanf("%[^\n]s", func.rua);
+		flush_in();
 		printf("Número: ");
-		scanf("%s", &func.numero);
+		scanf("%[^\n]s", func.numero);
+		flush_in();
 		printf("Bairro: ");
-		scanf("%s", &func.bairro);
+		scanf("%[^\n]s", func.bairro);
+		flush_in();
 		printf("Cidade: ");
-		scanf("%s", &func.cidade);
+		scanf("%[^\n]s", func.cidade);
+		flush_in();
 		printf("Cep: ");
-		scanf("%s", &func.cep);
+		scanf("%[^\n]s", func.cep);
+		flush_in();
 		printf("Horario de Abertura: ");
-		scanf("%s", &func.horaAbertura);
+		scanf("%[^\n]s", func.horaAbertura);
+		flush_in();
 		printf("Horario de Fechamento: ");
-		scanf("%s", &func.horaFechamento);
+		scanf("%[^\n]s", func.horaFechamento);
+		flush_in();
 		printf("Tipo de Culinária: ");
-		scanf("%s", &func.tipoCulinaria);
+		scanf("%[^\n]s", func.tipoCulinaria);
+		flush_in();
 
 		if (fwrite(&func,sizeof(Restaurante),1,pRestaurante) !=1){
 			printf("\n Não foi possivel realizar ocadastrar!\n");
@@ -125,21 +133,29 @@ void alterar(){
 						strcpy(funcAlterado.nome,strupr(strupr(nomePesquisa)));
 						printf("Insira o Endereço\n\n");
                         printf("Rua: ");
-                        scanf("%s", &funcAlterado.rua);
+                        scanf("%[^\n]s", funcAlterado.rua);
+                        flush_in();
                         printf("Número: ");
-                        scanf("%s", &funcAlterado.numero);
+                        scanf("%[^\n]s", funcAlterado.numero);
+                        flush_in();
                         printf("Bairro: ");
-                        scanf("%s", &funcAlterado.bairro);
+                        scanf("%[^\n]s", funcAlterado.bairro);
+                        flush_in();
                         printf("Cidade: ");
-                        scanf("%s", &funcAlterado.cidade);
+                        scanf("%[^\n]s", funcAlterado.cidade);
+                        flush_in();
                         printf("Cep: ");
-                        scanf("%s", &funcAlterado.cep);
+                        scanf("%[^\n]s", funcAlterado.cep);
+                        flush_in();
                         printf("Horario de Abertura: ");
-                        scanf("%s", &funcAlterado.horaAbertura);
+                        scanf("%[^\n]s", funcAlterado.horaAbertura);
+                        flush_in();
                         printf("Horario de Fechamento: ");
-                        scanf("%s", &funcAlterado.horaFechamento);
+                        scanf("%[^\n]s", funcAlterado.horaFechamento);
+                        flush_in();
                         printf("Tipo de Culinária: ");
-                        scanf("%s", &funcAlterado.tipoCulinaria);
+                        scanf("%[^\n]s", funcAlterado.tipoCulinaria);
+                        flush_in();
 						fseek(pRestaurante,cont*sizeof(Restaurante),SEEK_SET);
 						fwrite(&funcAlterado,sizeof(Restaurante),1,pRestaurante);
 						printf("\n Dados do Rstaurante alterado com sucesso!\n");
@@ -200,7 +216,7 @@ void excluir(){
 	system("cls");
 }
 
-int verificaNomeExistente(char nome[20]){
+int verificaNomeExistente(char* nome){
 	Restaurante aux;
 
 	int verificador = 0; // 1 - Ja existe cadastrado / 0 - Nao cadastrado

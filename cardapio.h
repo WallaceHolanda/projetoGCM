@@ -14,4 +14,7 @@ Lista* editarItemDoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante);
 
 void menuItensDoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante);
 
+void apresentaMenu();
+void flush_in();
+
 #endif // CARDAPIO_H_INCLUDED

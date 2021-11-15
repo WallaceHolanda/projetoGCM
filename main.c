@@ -5,16 +5,10 @@
 #include<locale.h>
 #include "restaurante.h"
 #include "cardapio.h"
+#include "usuario.h"
 
 int main(){
     setlocale(LC_ALL,"Portuguese");
-
-    char nomeDoRestaurante[50] = "AGUA NA BOCA";
-
-	Lista* cardapio = criaLista();
-	cardapio = carregaItensDoCardapio();
-
-    menuItensDoCardapio(cardapio, nomeDoRestaurante);
-
+    menuLogin();
 	return 0;
 }

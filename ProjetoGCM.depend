@@ -8,21 +8,43 @@
 	"restaurante.h"
 	"cardapio.h"
 
-1634383385 source:c:\users\pedro aires\desktop\trabalho de gcm\projetogcm\main.c
+1636984133 source:c:\users\pedro aires\desktop\trabalho de gcm\projetogcm\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	<locale.h>
 	"restaurante.h"
+	"cardapio.h"
+	"usuario.h"
 
-1634382878 source:c:\users\pedro aires\desktop\trabalho de gcm\projetogcm\cardapio.c
+1636983100 source:c:\users\pedro aires\desktop\trabalho de gcm\projetogcm\cardapio.c
+	"cardapio.h"
+	"restaurante.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<locale.h>
 
-1634298265 source:c:\users\pedro aires\desktop\trabalho de gcm\projetogcm\restaurante.c
+1636986182 source:c:\users\pedro aires\desktop\trabalho de gcm\projetogcm\restaurante.c
+	"restaurante.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<locale.h>
 
-1633199190 source:c:\users\pedro aires\desktop\trabalho de gcm\projetogcm\usuario.c
+1636985708 source:c:\users\pedro aires\desktop\trabalho de gcm\projetogcm\usuario.c
+	"usuario.h"
+	"restaurante.h"
+	"cardapio.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<windows.h>
 
-1634383033 c:\users\pedro aires\desktop\trabalho de gcm\projetogcm\restaurante.h
+1636983100 c:\users\pedro aires\desktop\trabalho de gcm\projetogcm\restaurante.h
 
 1634601592 source:c:\users\walla\desktop\projetogcm\restaurante.c
 	"restaurante.h"
@@ -46,4 +68,8 @@
 	<string.h>
 	<ctype.h>
 	<locale.h>
+
+1636984966 c:\users\pedro aires\desktop\trabalho de gcm\projetogcm\cardapio.h
+
+1636983591 c:\users\pedro aires\desktop\trabalho de gcm\projetogcm\usuario.h
 
