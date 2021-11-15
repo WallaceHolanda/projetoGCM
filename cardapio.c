@@ -119,14 +119,14 @@ int excluirItemDaLista(Lista* l, char* nomeDoItemExcluido){
             prox = prox->prox;
         }
         if(prox == NULL){
-            printf("Item não encontrado!\n");
+            printf("\nItem não encontrado!\n");
             return ITEM_NAO_ENCONTRADO;
         }else{
             if(ant == NULL){
-                printf("Item removido com sucesso!\n");
+                printf("\nItem removido com sucesso!\n");
                 l->prim = prox->prox;
             }else{
-                printf("Item removido com sucesso!\n");
+                printf("\nItem removido com sucesso!\n");
                 ant->prox = prox->prox;
             }
             free(prox);
@@ -145,12 +145,12 @@ int isListaVazia(Lista* l){
 Lista* cadastrarItemdoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante){
     char nomeDoItemCadastrado[50];
     //Lista* cardapioDeItens = carregaItensDoCardapio(nomeDoRestaurante);
-
 	system("cls");
 	printf("\n\n\tCADASTRO DE ITEM NO CARDÁPIO\n\t\n\n");
 	printf("\n Informe os dados do Item.\n\n");
 
 	printf("- Nome do Item: ");
+	flush_in();
     scanf("%[^\n]s", nomeDoItemCadastrado);
     flush_in();
 
@@ -173,9 +173,11 @@ Lista* cadastrarItemdoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante){
 
         insereLista(cardapioDeItens, meuItem);
         salvarListaNoArquivo(cardapioDeItens);
+        printf("\n ITEM CADASTRADO COM SUCESSO! \n");
 	} else{
 		printf("\n Item já cadastrado!\n ");
 	}
+	printf("\n Tecle enter para retornar ao menu...");
 	getchar();
 	system("cls");
 	return cardapioDeItens;
@@ -183,10 +185,11 @@ Lista* cadastrarItemdoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante){
 
 void listarCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante){
     //Lista* cardapioDeItens = carregaItensDoCardapio(nomeDoRestaurante);
+    flush_in();
     ListaNo* auxiliar;
     int cont = 1;
-
     system("cls");
+    printf("============= RESTAURANTE %s =============\n", nomeDoRestaurante);
     for(auxiliar = cardapioDeItens->prim; auxiliar != NULL; auxiliar = auxiliar->prox){
         if(strcmp(auxiliar->itemCardapio.nomeRestaurante, nomeDoRestaurante) == 0){
            printf("\n=======================================================\n");
@@ -197,14 +200,16 @@ void listarCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante){
         }
     }
     printf("\n=======================================================\n");
-    getchar();
+
+    printf("\n Tecle enter para retornar ao menu...");
+	getchar();
 	system("cls");
 }
 
 Lista* editarItemDoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante){
+    flush_in();
     ItemDoCardapio itemEditado;
     char nomeDoItemEditado[50];
-
 	system("cls");
 	printf("\n\n\tEDITAR ITEM DO CARDÁPIO\n\t\n\n");
 	printf("- Nome do Item: ");
@@ -212,9 +217,9 @@ Lista* editarItemDoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante){
     flush_in();
 
     if(verificaItemPeloRestaurante(cardapioDeItens, nomeDoItemEditado, nomeDoRestaurante) == ITEM_ENCONTRADO){
-
-        printf("\n\n\tEDITAR ITEM DO CARDÁPIO\n\t\n\n");
-        printf("\n\n\tINFORME OS NOVOS DADOS DO ITEM \n\t\n\n");
+        system("cls");
+        printf("\n\tITEM %s ENCONTRADO!\n", nomeDoItemEditado);
+        printf("\n\tINFORME OS NOVOS DADOS DO ITEM\n");
 
         strcpy(itemEditado.nomeRestaurante, nomeDoRestaurante);
 
@@ -233,6 +238,7 @@ Lista* editarItemDoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante){
         Lista* listaAuxiliar = criaLista();
         listaAuxiliar = substituirItem(cardapioDeItens, nomeDoItemEditado, nomeDoRestaurante, itemEditado);
 
+        printf("\n ITEM EDITADO COM SUCESSO! \n");
 
         if(isListaVazia(listaAuxiliar) == 0){
             salvarListaNoArquivo(listaAuxiliar);
@@ -240,15 +246,16 @@ Lista* editarItemDoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante){
         }
 
     } else {
-        printf("Item não encontrado!");
+        printf("\nItem não encontrado!\n");
     }
-
-    getchar();
+    printf("Tecle enter para retornar ao menu...");
+	getchar();
 	system("cls");
 	return cardapioDeItens;
 }
 
 Lista* excluirItemDoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante){
+    flush_in();
     char nomeDoItemExcluido[50];
     //Lista* cardapioDeItens = carregaItensDoCardapio(nomeDoRestaurante);
 
@@ -259,11 +266,58 @@ Lista* excluirItemDoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante){
     scanf("%[^\n]s", nomeDoItemExcluido);
     flush_in();
 
-    if(excluirItemDaLista(cardapioDeItens, nomeDoItemExcluido) == ITEM_ENCONTRADO)
+    if(excluirItemDaLista(cardapioDeItens, nomeDoItemExcluido) == ITEM_ENCONTRADO){
         salvarListaNoArquivo(cardapioDeItens);
-    getchar();
+    }
+
+    printf("\n Tecle enter para retornar ao menu...");
+	getchar();
 	system("cls");
 	return cardapioDeItens;
+}
+
+void apresentaMenu(){
+    printf("\t Gerenciamento de Itens do Cardápio \n");
+    printf("\t [1] CADASTRAR ITENS\n");
+    printf("\t [2] EDITAR ITENS\n");
+    printf("\t [3] LISTAR ITENS\n");
+    printf("\t [4] EXCLUIR ITENS\n");
+    printf("\t [5] SAIR \n");
+    printf("\t Opção: ");
+}
+
+void menuItensDoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante){
+    int opcao;
+	do{
+        system("cls");
+		apresentaMenu();
+		scanf("%d", &opcao);
+
+		switch(opcao){
+			case 1:
+				cardapioDeItens = cadastrarItemdoCardapio(cardapioDeItens, nomeDoRestaurante);
+				break;
+			case 2:
+                cardapioDeItens = editarItemDoCardapio(cardapioDeItens, nomeDoRestaurante);
+				break;
+			case 3:
+				listarCardapio(cardapioDeItens, nomeDoRestaurante);
+				break;
+			case 4:
+				cardapioDeItens = excluirItemDoCardapio(cardapioDeItens, nomeDoRestaurante);
+				break;
+			case 5:
+				exit(0);
+				break;
+		}
+		if ((opcao < 0) || (opcao > 4)){
+	        printf("\n\n\t\t\t\t\t\tOpção Inválida!\n ");
+	        getchar();
+		}
+	}while(opcao !=0);
+
+	system("cls");
+	getchar();
 }
 
 

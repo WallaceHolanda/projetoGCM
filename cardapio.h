@@ -12,6 +12,6 @@ void listarCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante);
 Lista* excluirItemDoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante);
 Lista* editarItemDoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante);
 
-//void menuCardapio();
+void menuItensDoCardapio(Lista* cardapioDeItens, char* nomeDoRestaurante);
 
 #endif // CARDAPIO_H_INCLUDED
